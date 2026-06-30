@@ -1,9 +1,17 @@
 import json
+from pathlib import Path
+
 import torch
 from torch import nn
 
 from Dataset import get_linear_probe_train_loader, get_test_loader
 from model import CNNModel
+
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+CHECKPOINT_DIR = PROJECT_ROOT / "checkpoints"
+RESULTS_DIR = PROJECT_ROOT / "results"
+DATA_ROOT = PROJECT_ROOT / "data"
 
 
 def train_one_epoch(encoder, classifier, train_loader, criterion, optimizer, device):
@@ -58,36 +66,39 @@ def evaluate(encoder, classifier, test_loader, device):
 
 
 def save_results(result_path, results):
+    result_path.parent.mkdir(parents=True, exist_ok=True)
     with open(result_path, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2)
 
 
 def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    print("当前设备：", device)
+    print("device:", device)
 
-    train_samples = 1000
-    test_samples = 1000
-    batch_size = 32
-    pretrain_epochs = 3
-    linear_probe_epochs = 3
+    train_samples = 5000
+    test_samples = 5000
+    batch_size = 64
+    pretrain_epochs = 100
+    linear_probe_epochs = 100
     lr = 1e-3
 
     train_loader = get_linear_probe_train_loader(
+        root=DATA_ROOT,
         n_samples=train_samples,
         batch_size=batch_size,
     )
 
     test_loader = get_test_loader(
+        root=DATA_ROOT,
         n_samples=test_samples,
         batch_size=batch_size,
     )
 
     encoder = CNNModel(feature_dim=128).to(device)
 
-    checkpoint_path = "../checkpoints/simclr_encoder.pth"
+    encoder_checkpoint_path = CHECKPOINT_DIR / "simclr_encoder.pth"
     encoder.load_state_dict(
-        torch.load(checkpoint_path, map_location=device, weights_only=True)
+        torch.load(encoder_checkpoint_path, map_location=device, weights_only=True)
     )
 
     for param in encoder.parameters():
@@ -121,6 +132,9 @@ def main():
             f"test accuracy: {accuracy:.4f}"
         )
 
+    classifier_checkpoint_path = CHECKPOINT_DIR / "linear_classifier.pth"
+    torch.save(classifier.state_dict(), classifier_checkpoint_path)
+
     results = {
         "train_samples": train_samples,
         "test_samples": test_samples,
@@ -129,10 +143,14 @@ def main():
         "batch_size": batch_size,
         "learning_rate": lr,
         "test_accuracy": accuracy,
+        "encoder_checkpoint": str(encoder_checkpoint_path.relative_to(PROJECT_ROOT)),
+        "classifier_checkpoint": str(classifier_checkpoint_path.relative_to(PROJECT_ROOT)),
     }
 
-    save_results("../results/linear_probe_results.json", results)
+    save_results(RESULTS_DIR / "linear_probe_results.json", results)
 
 
 if __name__ == "__main__":
     main()
+
+

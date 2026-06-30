@@ -1,5 +1,5 @@
-#tmp/
-#settings.local.json
-#metadata/
-#logs/
-#redactors/local/
+tmp/
+settings.local.json
+metadata/
+logs/
+redactors/local/

@@ -55,9 +55,9 @@ def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print("当前设备：",device)
 
-    epochs = 3
-    batch_size = 32
-    n_samples = 1000
+    epochs = 100
+    batch_size = 64
+    n_samples = 5000
     lr = 1e-3
 
     dataloader = get_simclr_train_loader(
