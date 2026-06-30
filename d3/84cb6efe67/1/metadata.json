@@ -1,0 +1,62 @@
+{
+  "cli_version": "0.7.7",
+  "checkpoint_id": "d384cb6efe67",
+  "session_id": "019f1755-1322-7693-98e9-ca003764da41",
+  "strategy": "manual-commit",
+  "created_at": "2026-06-30T07:09:42.2166102Z",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "save_step_count": 1,
+  "files_touched": [
+    ".gitignore",
+    "code/model.py"
+  ],
+  "agent": "Codex",
+  "model": "gpt-5.5",
+  "turn_id": "39c04c222bb2",
+  "token_usage": {
+    "input_tokens": 25371,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 175744,
+    "output_tokens": 2911,
+    "api_call_count": 7
+  },
+  "session_metrics": {
+    "turn_count": 1
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-06-30T07:09:42.1854938Z",
+    "agent_lines": 0,
+    "agent_removed": 0,
+    "human_added": 0,
+    "human_modified": 85,
+    "human_removed": 13,
+    "total_committed": 0,
+    "total_lines_changed": 98,
+    "agent_percentage": 0,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 1,
+      "user_lines_added": 86,
+      "user_lines_removed": 13,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0,
+      "user_added_per_file": {
+        ".gitignore": 14,
+        "code/model.py": 72
+      },
+      "user_removed_per_file": {
+        ".gitignore": 13
+      }
+    },
+    {
+      "checkpoint_number": 2,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 86,
+      "agent_lines_removed": 13
+    }
+  ]
+}
