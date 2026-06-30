@@ -1,0 +1,13 @@
+
+# Selected text:
+
+## Selection 1
+数据测试暂时失败，不是代码逻辑问题，而是 data/cifar-10-batches-py/ 权限问题，Git 也提示该目录 Permission denied。
+
+## My request for Codex:
+如何解决这个问题
+
+
+---
+
+我正在运行pycharm 是这个的问题么

@@ -1,0 +1,19 @@
+第二天 根据weekly-plan和我的文件进度 告诉我接下来该做些什么
+
+
+---
+
+net里面应该怎么写
+
+
+---
+
+告诉我具体思路 以及示例代码
+
+
+---
+
+D:\Roaming\Miniconda3\envs\MedAI\python.exe D:\Desktop\MedAI\mini-simclr-assignment\code\model.py 
+input shape: torch.Size([4, 3, 32, 32])
+features shape: torch.Size([4, 128])
+projections shape: torch.Size([4, 128])

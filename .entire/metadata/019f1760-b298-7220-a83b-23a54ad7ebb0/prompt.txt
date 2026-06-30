@@ -1,0 +1,33 @@
+第四天 根据weekly-plan和我的文件进度 告诉我接下来该做些什么
+
+
+---
+
+我需要用到什么函数 以及什么思路
+
+
+---
+
+告诉我示例函数
+
+
+---
+
+总体示例函数‘
+
+
+---
+
+Traceback (most recent call last):
+  File "D:\Desktop\MedAI\mini-simclr-assignment\code\pretrian.py", line 88, in <module>
+    main()
+  File "D:\Desktop\MedAI\mini-simclr-assignment\code\pretrian.py", line 82, in main
+    write_log("logs/pretrain.log", log_text)
+  File "D:\Desktop\MedAI\mini-simclr-assignment\code\pretrian.py", line 47, in write_log
+    with open(log_path, "a", encoding="utf-8") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'logs/pretrain.log'
+
+
+---
+
+epoch 1/1, contrastive loss: 3.9921

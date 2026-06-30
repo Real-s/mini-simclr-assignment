@@ -1,0 +1,34 @@
+好的
+
+
+---
+
+Traceback (most recent call last):
+  File "D:\Desktop\MedAI\mini-simclr-assignment\code\Dataset.py", line 86, in <module>
+    print(v1.shape, v2.shape, y)
+AttributeError: 'Compose' object has no attribute 'shape' 这是为什么 
+
+
+---
+
+Files already downloaded and verified
+torch.Size([3, 32, 32]) torch.Size([3, 32, 32]) 6
+Files already downloaded and verified
+torch.Size([3, 32, 32]) 3
+
+
+---
+
+继续
+
+
+---
+
+写下这个项目的记忆：
+1.使用python验证器使用 conda环境的MedAI
+2.给予我修改建议即可 我现在处于学习阶段不需要直接给我修改文件
+
+
+---
+
+看一下我的项目进度 接下来该做些什么了

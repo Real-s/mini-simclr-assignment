@@ -1,0 +1,9 @@
+
+# Selected text:
+
+## Selection 1
+__pycache__/
+*.pyc
+
+## My request for Codex:
+这两行是干什么的
